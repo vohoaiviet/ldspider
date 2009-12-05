@@ -1,0 +1,55 @@
+= Introduction =
+
+The LDSpider projects aims to provide a lightweighted web crawler for the Linked Data Web. 
+The library will be optimised for a pure in-memory setup. Thus, the scalability of this library is bounded to the allocated and available memory.  
+
+= Usage =
+
+== Command Line ==
+
+{{{
+#>java -jar ldspider.0.1.1-dev.jar 
+usage:   [-h] [-r <rounds>] [-s <seed list> | -uri <uri>] [-t <threads>]
+ERROR: Missing required option: s or uri
+
+ -h,--help        print help
+ -r <rounds>      number of rounds (default 2)
+ -s <seed list>   location of the seed list
+ -t <threads>     number of threads (default 2)
+ -uri <uri>       uri of an instance
+}}}
+
+Usage 
+{{{
+#>java -jar ldspider.0.1.1-dev.jar -uri http://example.org/foaf.rdf
+}}}
+
+== Java Code ==
+{{{
+Crawler c = new Crawler();
+
+List<URI> seeds = new ArrayList<URI>();
+seeds.add(uri);
+	
+ErrorHandler eh = new ErrorHandlerLogger();
+c.setErrorHandler(eh);
+
+//OutputCallback	
+Callback nc = new NodeCollector();
+// new CallbackNQOutputStream(System.out) //for streaming 
+c.setOutputCallback(nc);
+//link filter
+c.setLinkSelectionCallback(new LinkFilterDefault(eh));
+//fetch filter
+c.setFetchFilter(new FetchFilterRdfXml(eh));
+
+//run
+c.evaluate(seeds, depth , threads);
+}}}
+
+= Dependencies =
+LDSpider has the following dependencies (included in the svn repository and the jar file)
+ * *NXParser* (parsing RDF/XML) http://sw.deri.org/2006/08/nxparser/
+ * *HTTPClient 4* (http connection handling) http://hc.apache.org/ (with packages httpcore, httpcore-nio and httpmime)
+ * *Commons CLI* (command line interface) http://commons.apache.org/cli/
+ * *Norbert* (robots.txt handler) http://www.osjava.org/norbert/
