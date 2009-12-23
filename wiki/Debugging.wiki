@@ -1,0 +1,5 @@
+#summary Info on debugging
+
+= Debugging =
+
+If a process waits infinitely, used kill -s SIGQUIT <processid> to get debug output of the current state of threads
