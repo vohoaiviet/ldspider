@@ -9,7 +9,7 @@ The library will be optimised for a pure in-memory setup. Thus, the scalability 
 
 {{{
 #>java -jar ldspider.0.1.1-dev.jar 
-usage:   [-h] [-r <rounds>] [-s <seed list> | -uri <uri>] [-t <threads>]
+usage:   [-h] [-r <rounds>] [-s <seed list> | -u <uri>] [-t <threads>]
 ERROR: Missing required option: s or uri
 
  -h,--help        print help
