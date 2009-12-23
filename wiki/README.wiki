@@ -21,8 +21,13 @@ ERROR: Missing required option: s or uri
 
 Usage 
 {{{
-#>java -jar ldspider.0.1.1-dev.jar -uri http://example.org/foaf.rdf
+#>java -jar ldspider.0.1.1-dev.jar -u http://example.org/foaf.rdf
 }}}
+
+=== Proxies ===
+
+Use java -DproxyHost=localhost -DproxyPort=3128 to enable proxy.
+Note: standard squid does not seem to cache 303 redirects (at least not the FOAF ones).
 
 == Java Code ==
 {{{
