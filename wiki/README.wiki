@@ -16,7 +16,7 @@ ERROR: Missing required option: s or uri
  -r <rounds>      number of rounds (default 2)
  -s <seed list>   location of the seed list
  -t <threads>     number of threads (default 2)
- -uri <uri>       uri of an instance
+ -u <uri>         uri of an instance
 }}}
 
 Usage 
