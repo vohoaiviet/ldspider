@@ -1,0 +1,17 @@
+#summary Description of hooks architecture
+
+= Introduction =
+
+ldspider uses Hooks to adapt the behaviour of the crawler
+
+
+= Hook Registration =
+
+ * FetchFilter - check if content is allowed to be downloaded
+ * LinkFilter - filter out certain links
+ * ErrorHandler - register error handling code
+ * ContentHandler - NQ callback to process content
+
+= TBD =
+
+need hooks for content parsing
