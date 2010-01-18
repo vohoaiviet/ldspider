@@ -38,7 +38,7 @@ System.setProperty("java.net.useSystemProxies", "true");)
 
 == Java Code ==
 {{{
-Crawler c = new Crawler();
+Crawler c = new Crawler(threads);
 
 List<URI> seeds = new ArrayList<URI>();
 seeds.add(uri);
@@ -56,7 +56,8 @@ c.setLinkSelectionCallback(new LinkFilterDefault(eh));
 c.setFetchFilter(new FetchFilterRdfXml(eh));
 
 //run
-c.evaluate(seeds, depth , threads);
+c.evaluate(seeds, depth);
+//optional: c.evaluate(seeds, depth,maxURIs);
 }}}
 
 = Dependencies =
