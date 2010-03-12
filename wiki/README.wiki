@@ -48,8 +48,7 @@ System.setProperty("java.net.useSystemProxies", "true");)
 {{{
 Crawler c = new Crawler(threads);
 
-List<URI> seeds = new ArrayList<URI>();
-seeds.add(uri);
+
 
 /*
 * SETUP ERROR HANDLING
@@ -72,6 +71,9 @@ Frontier frontier = new RankedFrontier();
 //Connect errorhandler to frontier (we use the same error handler)
 frontier.setErrorHandler(eh);
 frontier.setBlacklist(CrawlerConstants.BLACKLIST);
+//add all seeds
+List<URI> seeds = new ArrayList<URI>();
+seeds.add(uri);
 frontier.addAll(seeds);
 				
 
