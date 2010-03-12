@@ -45,6 +45,8 @@ http.nonProxyHosts is not implemented
 System.setProperty("java.net.useSystemProxies", "true");)
 
 == Java Code ==
+To get a full code example please have a look into 
+[http://code.google.com/p/ldspider/source/browse/trunk/src/com/ontologycentral/ldspider/Main.java Main]
 {{{
 /*
 * SETUP CRAWLER
