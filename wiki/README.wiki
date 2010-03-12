@@ -10,20 +10,26 @@ The library will be optimised for a pure in-memory setup. Thus, the scalability 
 == Command Line ==
 
 {{{
-#>java -jar ldspider.0.1.1-dev.jar 
-usage:   [-h] [-r <rounds>] [-s <seed list> | -u <uri>] [-t <threads>]
-ERROR: Missing required option: s or uri
+#>java -jar ldspider.0.1.dev.jar 
+ -m <max no uris>       max no of uris per pld per round
+ -t <threads>                 number of threads (default 2)
+ -s <seed list>               location of the seed list
+ -u <uri>                         uri of an instance
+ -b <on-disk queue>   use the BDB on-disk queue with URI selection based on
+ -d <depth>                   depth; number of rounds (default 2)
+ -f                                     do strict breadth-first
+ -n                                    do not extract links - just follow redirects.
+ -y                                    stay on domains of seed uris
+ -h,--help                      print help
+ -l <log file name>      name of access log file
+ -o <file name>            name of NQ file with output
+ -r <redirects>             write redirects.nx file
 
- -h,--help        print help
- -r <rounds>      number of rounds (default 2)
- -s <seed list>   location of the seed list
- -t <threads>     number of threads (default 2)
- -u <uri>         uri of an instance
 }}}
 
 Usage 
 {{{
-#>java -jar ldspider.0.1.1-dev.jar -u http://example.org/foaf.rdf
+#>java -jar ldspider.0.1.dev.jar -u http://example.org/foaf.rdf
 }}}
 
 === Proxies ===
@@ -44,10 +50,34 @@ Crawler c = new Crawler(threads);
 
 List<URI> seeds = new ArrayList<URI>();
 seeds.add(uri);
-	
-ErrorHandler eh = new ErrorHandlerLogger();
+
+/*
+* SETUP ERROR HANDLING
+*/
+// Print to Stdout
+PrintStream ps = System.out;
+// Print to file
+FileOutputStream fos = new FileOutputStream(cmd.getOptionValue("r"));
+Callback rcb =new CallbackNQOutputStream(fos);
+rcb.startDocument();
+//add printstream and file stream to error handler
+ErrorHandler eh = new ErrorHandlerLogger(ps, rcb);
+//connect error handler with crawler
 c.setErrorHandler(eh);
 
+/*
+*SETUP CRAWL FRONTIER
+*/
+Frontier frontier = new RankedFrontier();
+//Connect errorhandler to frontier (we use the same error handler)
+frontier.setErrorHandler(eh);
+frontier.setBlacklist(CrawlerConstants.BLACKLIST);
+frontier.addAll(seeds);
+				
+
+/*
+* SETUP CONTENT STREAMING/WRITING
+*/
 //OutputCallback	
 Callback nc = new NodeCollector();
 // new CallbackNQOutputStream(System.out) //for streaming 
