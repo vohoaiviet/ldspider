@@ -7,29 +7,42 @@ The library will be optimised for a pure in-memory setup. Thus, the scalability 
 
 = Usage =
 
+There's three modes for crawling:
+
+ * breadth first: you specify the depth of the breadth-first traversal (number of rounds), as well as the maximum number of URIs crawled per round per pay-level domain. -1 means unlimited amount of URIs per pay-level domain.
+ * load balancing: you specify the maximum number of URIs crawled, and the crawler will try to fetch up to that number of URIs as quickly as possible. Please note that the crawler might get a few more URIs as we check only occasionally if the limit has been reached.
+ * load balancing on disk: same as load balancing, but the queue is stored in BerkeleyDB on disk.
+
 == Command Line ==
 
 {{{
-#>java -jar ldspider.0.1.dev.jar 
- -m <max no uris>       max no of uris per pld per round
- -t <threads>                 number of threads (default 2)
- -s <seed list>               location of the seed list
- -u <uri>                         uri of an instance
- -b <on-disk queue>   use the BDB on-disk queue with URI selection based on
- -d <depth>                   depth; number of rounds (default 2)
- -f                                     do strict breadth-first
- -n                                    do not extract links - just follow redirects.
- -y                                    stay on domains of seed uris
- -h,--help                      print help
- -l <log file name>      name of access log file
- -o <file name>            name of NQ file with output
- -r <redirects>             write redirects.nx file
-
+$ java -jar ldspider-0.1dev.jar 
 }}}
 
-Usage 
 {{{
-#>java -jar ldspider.0.1.dev.jar -u http://example.org/foaf.rdf
+usage:   [-b <depth uri-limit> | -c <max-uris> | -d <directory max-uris>]   [-h]
+       [-l <file>] [-n] [-o <file>] [-r <redirects>] [-s <file> | -u <uri>] [-t
+       <threads>]  [-y]
+
+ -b <depth uri-limit>      do strict breadth-first
+ -c <max-uris>             use load balanced crawling strategy
+ -d <directory max-uris>   use on-disk queue with URI selection based on
+                           frequency
+ -h,--help                 print help
+ -l <file>                 name of access log file
+ -n                        do not extract links - just follow redirects
+ -o <file>                 name of NQuad file with output
+ -r <redirects>            write redirects.nx file
+ -s <file>                 location of seed list
+ -t <threads>              number of threads (default 2)
+ -u <uri>                  uri of an instance
+ -y                        stay on domains of seed uris
+}}}
+
+Example:
+ 
+{{{
+$ java -jar ldspider-0.1dev.jar -c 1 -u http://harth.org/andreas/foaf.rdf -o data.nq
 }}}
 
 === Proxies ===
@@ -102,8 +115,8 @@ c.setOutputCallback(new CallbackNQOutputStream(os));
 
 
 //run
-c.evaluate(seeds, depth);
-//optional: c.evaluate(seeds, depth,maxURIs);
+c.evaluateLoadBalanced(seeds, sources);
+// optional: c.evaluateBreadthFirst(seeds, depth, maxURIs);
 }}}
 
 = Dependencies =
