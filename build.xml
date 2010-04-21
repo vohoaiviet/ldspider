@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="ldspider" basedir="." default="dist">
 <property name="name" value="ldspider"/>
-<property name="version" value="0.1dev"/>
+<property name="version" value="1.0"/>
 <property name="dist" value="dist"/>
   <path id="classpath">
     <fileset dir="lib">
