@@ -1,0 +1,57 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+ldspider uses Hooks to adapt the behaviour of the crawler
+
+= Hook Registration =
+
+== FetchFilter ==
+A FetchFilter checks if a page is allowed to be downloaded.
+
+== LinkFilter ==
+A LinkFilter filters links from a parsed document.
+
+== ContentHandler ==
+A content handler is used to handle documents and extract RDF statements from it.
+
+=== ContentHandlerRdfXml ===
+
+Handles RDF/XML documents.
+
+=== ContentHandlerNx ===
+
+Handles N-TRIPLES and N-QUADS documents.
+
+=== ContentHandlerAny23 ===
+
+Uses Any23 to handle all kinds of documents. This includes RDF/XML, Turtle, Notation 3, RDFa and many Microformats. Needs a running Any23 server which can be downloaded from http://any23.org.
+
+*Parameters:*
+
+|| *Parameter* || *required* || *Description* ||
+||any23Endpoint||no||The Any23 endpoint to be used. If ommitted, the default Any23 endpoint of a local server will be used (http://127.0.0.1:8080).
+
+=== ContentHandlers ===
+
+Combines multiple content handlers.
+
+*Parameters:*
+
+handlers: The content handlers. Content handlers will be prioritized by their sequence order.
+
+*Example:*
+
+Combining ContentHandlerRdfXml and ContentHandlerAny23 to handle RDF/XML document locally and other documents using the Any23 server:
+
+{{{
+ContantHandler h = new ContentHandlers(new ContentHandlerRdfXml(), new ContentHandlerAny23());
+crawler.setContentHandler(h);
+}}}
+
+== Sink ==
+A Sink is receives the crawled statements and processes them usually by writing them to some output.
+
+== ErrorHandler ==
+An ErrorHandler ...
+
