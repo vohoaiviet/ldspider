@@ -1,12 +1,14 @@
-#summary One-sentence summary of this page.
-
-<wiki:toc />
+#summary Description of hooks architecture
+#sidebar TableOfContents
+  * [Hooks HOWTO articles]
+    * [FetchFilter Web security]
+    * [LinkFilter DOM manipulation]
 
 = Introduction =
 
 ldspider uses Hooks to adapt the behaviour of the crawler
 
-= Hook Registration =
+= Hooks =
 
 == FetchFilter ==
 A fetch filter checks if a page is allowed to be downloaded.
