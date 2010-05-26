@@ -104,4 +104,4 @@ Writes the content to a triple store using SPARQL/Update. Optionally uses Named 
 ||graphUri||no||The graph into which all statements are written. If not given, each dataset will be written into its own graph.||
 
 ==!ErrorHandler==
-An error handler ...
+An error handler processes exceptions.
