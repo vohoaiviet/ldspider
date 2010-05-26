@@ -10,9 +10,30 @@ ldspider uses Hooks to adapt the behaviour of the crawler
 
 ==!FetchFilter==
 A fetch filter checks if a page is allowed to be downloaded.
+The following fetch filters are available:
+===!FetchFilterAllow===
+A fetch filter which downloads all papges.
+===!FetchFilterDeny===
+A fetch filter which downloads no page at all.
+===!FetchFilterRdfXml===
+A fetch filter which downloads all RDF/XML pages.
 
 ==!LinkFilter==
-A link filter filters links from a parsed document.
+A link filter filters links from a parsed document. Can be configured to fetch ABox and/or TBox links in the document.
+
+Every link filter defines the following configuration methods:
+|| *Method* || *Description* ||
+||setFollowABox||Configures if the given link filter will follow ABox links.||
+||setFollowTBox||Configures if the given link filter will follow TBox links.||
+||setErrorHandler||Configures an error handler.||
+
+The following link filters are available:
+===!LinkFilterDefault===
+Default link filter, which can be configured to fetch all ABox and/or TBox links in the document.
+===!LinkFilterDomain===
+Link filter which adds only uris with matching host to queue. 
+===!LinkFilterPrefix===
+Add only uris with matching prefix to queue.
 
 ==!ContentHandler==
 A content handler is used to handle documents and extract RDF statements from it.
