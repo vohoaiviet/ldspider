@@ -2,7 +2,7 @@
 #labels Deprecated
 
 =Introduction=
-ldspider uses Hooks to adapt the behaviour of the crawler
+ldspider uses Hooks to adapt the behaviour of the crawler.
 
 =Contents=
 <wiki:toc max_depth="3" />
@@ -11,6 +11,7 @@ ldspider uses Hooks to adapt the behaviour of the crawler
 
 ==!FetchFilter==
 A fetch filter checks if a page is allowed to be downloaded.
+
 The following fetch filters are available:
 ===!FetchFilterAllow===
 A fetch filter which downloads all papges.
@@ -66,7 +67,7 @@ Combines multiple content handlers.
 
 *Example:*
 
-Combining ContentHandlerRdfXml and ContentHandlerAny23 to handle RDF/XML document locally and other documents using the Any23 server:
+Combining !ContentHandlerRdfXml and !ContentHandlerAny23 to handle RDF/XML documents locally and other documents using the Any23 server:
 
 {{{
 ContantHandler h = new ContentHandlers(new ContentHandlerRdfXml(), new ContentHandlerAny23());
