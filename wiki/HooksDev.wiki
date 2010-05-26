@@ -1,4 +1,5 @@
 #summary Description of hooks architecture
+#labels Deprecated
 
 =Introduction=
 ldspider uses Hooks to adapt the behaviour of the crawler
