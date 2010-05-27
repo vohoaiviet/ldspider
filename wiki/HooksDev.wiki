@@ -100,10 +100,21 @@ crawler.setOutputCallback(sink);
 
 Writes the content to a triple store using SPARQL/Update. Optionally uses Named Graphs to represent provenance.
 
+*Parameters:*
 || *Parameter* || *Required* || *Description* ||
 ||sparulEndpoint||yes||The SPARQL/Update endpoint.||
 ||includeProvenance||yes||If true, provenance information will be included in the output.||
 ||graphUri||no||The graph into which all statements are written. If not given, each dataset will be written into its own graph.||
+
+*Example:*
+{{{
+String sparulEndpoint = "http://localhost:2020/service/update";
+boolean includeProvenance = false;
+String graph = "http://example.com/SinkSparulTestGraph";
+
+Sink sink = new SinkSparul(sparulEndpoint, includeProvenance, graph);
+c.setOutputCallback(sink);
+}}}
 
 ==!ErrorHandler==
 An error handler processes exceptions.
