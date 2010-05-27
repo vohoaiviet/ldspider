@@ -79,7 +79,7 @@ A Sink is receives the crawled statements and processes them usually by writing 
 
 ===!SinkCallback===
 
-Uses an Callback from the NxParser library (http://sw.deri.org/2006/08/nxparser/) to write the statements. Among others, NxParser includes callbacks to write N-QUADS and RDF/XML.
+Uses an Callback from the !NxParser library (http://sw.deri.org/2006/08/nxparser/) to write the statements. Among others, !NxParser includes callbacks to write N-QUADS and RDF/XML.
 
 *Parameters:*
 
@@ -113,7 +113,7 @@ boolean includeProvenance = false;
 String graph = "http://example.com/SinkSparulTestGraph";
 
 Sink sink = new SinkSparul(sparulEndpoint, includeProvenance, graph);
-c.setOutputCallback(sink);
+crawler.setOutputCallback(sink);
 }}}
 
 ==!ErrorHandler==
