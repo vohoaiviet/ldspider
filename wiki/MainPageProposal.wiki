@@ -1,5 +1,4 @@
-#summary Proposal for a new main page (work in progress)
-#labels Deprecated
+#summary Proposal for a new main page
 ===Introduction===
 The *ldspider* project aims to build a web crawling framework for the linked data web. Requirements and challenges for crawling the linked data web are different from regular web crawling, thus this projects offer a web crawler adapted to traverse and harvest sources and instances from the linked data web. We offer a single jar which can be easily integrated into own applications.
 
@@ -19,5 +18,5 @@ The project is a co-operation between Andreas Harth at [http://www.aifb.kit.edu/
 
 ===Getting Started=== 
 *ldSpider* can be used in two ways:
- * Through a [README#Command_Line Command Line] application. 
- * Through a flexible [README#Java_Code API], which provides various [Hooks] to extend the behaviour of the crawler.
+ * Through a command line application. [GettingStartedCommandLine Getting started using ldSpider from the command line]
+ * Through a flexible API, which provides various [Hooks] to extend the behaviour of the crawler. [GettingStartedAPI Getting started using the ldSpider API]
