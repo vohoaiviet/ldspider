@@ -3,10 +3,11 @@
 =Introduction=
 
 The LDSpider projects aims to provide a lightweighted web crawler for the Linked Data Web. 
-The library will be optimised for a pure in-memory setup. Thus, the scalability of this library is bounded to the allocated and available memory.  
+The library will be optimised for a pure in-memory setup. Thus, the scalability of this library is bounded to the allocated and available memory.
+
+This page provides a short overview over the ldSpider command line application. If you need more flexibility you can use the [GettingStartedAPI ldSpider Java API].
 
 =Usage=
-
 {{{
 $ java -jar ldspider-0.1dev.jar 
 }}}
