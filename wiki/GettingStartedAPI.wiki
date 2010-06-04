@@ -29,12 +29,18 @@ An overview over all available Link Filters can be found [Hooks#LinkFilter here]
 ==Setting the Content Handler==
 By default, ldSpider will handle all documents which use the RDF/XML format. If we want to handler different formats, we can register a Content Handler. Here we combine an RDF/XML Handler and an Nx Handler to handle the most commonly used Linked Data formats:
 {{{
-ContantHandler h = new ContentHandlers(new ContentHandlerRdfXml(), new ContentHandlerNx());
+ContentHandler h = new ContentHandlers(new ContentHandlerRdfXml(), new ContentHandlerNx());
 crawler.setContentHandler(h);
 }}}
 An overview over all available Content Handlers can be found [Hooks#ContentHandler here]
 ==Setting the Sink==
-
+Finally, we need to define a sink, which can be used by the Crawler to write the extracted statements. In this example, we write all statements to a file using the N-QUADS format. For his purpose, we use the SinkCallback class which can use an arbitrary callback from the NxParser library (http://sw.deri.org/2006/08/nxparser/) to write the statements. Among others, NxParser includes a callback to write N-QUADS:
+{{{
+OutputStream os = new FileOutputStream(outputFile);
+Sink sink = new SinkCallback(new CallbackNQOutputStream(os));
+crawler.setOutputCallback(sink);
+}}}
+An overview over all available Sinks can be found [Hooks#Sink here]
 ==Error handling==
 
 ==Start crawling==
