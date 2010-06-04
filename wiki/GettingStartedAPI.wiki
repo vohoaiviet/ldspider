@@ -9,7 +9,7 @@ TODO
 =Crawler Setup=
 ==Creating a new Crawler==
 {{{
-Crawler c = new Crawler(numberOfThreads);
+Crawler crawler = new Crawler(numberOfThreads);
 }}}
 ==Setting the Frontier==
 {{{
@@ -23,11 +23,16 @@ In this example, we restrict the crawling to a specific domain using a Link Filt
 {{{
 LinkFilter linkFilter = new LinkFilterDomain(frontier);  
 linkFilter.addHost(hostUri);  
-c.setLinkFilter(linkFilter);
+crawler.setLinkFilter(linkFilter);
 }}}
 An overview over all available Link Filters can be found [Hooks#LinkFilter here]
 ==Setting the Content Handler==
-
+By default, ldSpider will handle all documents which use the RDF/XML format. If we want to handler different formats, we can register a Content Handler. Here we combine an RDF/XML Handler and an Nx Handler to handle the most commonly used Linked Data formats:
+{{{
+ContantHandler h = new ContentHandlers(new ContentHandlerRdfXml(), new ContentHandlerNx());
+crawler.setContentHandler(h);
+}}}
+An overview over all available Content Handlers can be found [Hooks#ContentHandler here]
 ==Setting the Sink==
 
 ==Error handling==
@@ -42,5 +47,5 @@ int maxURIs = 100;
 boolean includeABox = true;
 boolean includeTBox = false;
 
-c.evaluateBreadthFirst(frontier, depth, maxURIs, includeABox, includeTBox);
+crawler.evaluateBreadthFirst(frontier, depth, maxURIs, includeABox, includeTBox);
 }}}
