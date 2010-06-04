@@ -7,14 +7,14 @@ The project is a co-operation between Andreas Harth at [http://www.aifb.kit.edu/
 ===Features===
  * Can extract RDF statements from different formats:
   * Includes handlers to read RDF/XML, N-TRIPLES and N-QUADS.
-  * Can communicate with an Any23 server to read a variety of Web documents such as RDFa and different microformats.
+  * Can communicate with an Any23 server to extract RDF from a variety of formats such as RDFa and different microformats.
   * Can easily be extended with custom content handlers to handle additional formats.
  * Supports different crawling strategies and can optionally crawl schema information.
- * Crawling can be restricted to a limited set of pages by their domain prefix.
- * Includes different content sinks
-  * Can write to files in different formats, such as RDF/XML or N-QUADS
-  * Can write to a Triple Store using SPARQL/Update. Optionally uses named graphs to structure the written statements by their source page.
- * Written graphs optionally include their provenance.  
+ * Crawling can easily be restricted to specific pages e.g. pages with a specific domain prefix.
+ * The crawled data can be written in various ways:
+  * The output can be written to files in different formats, such as RDF/XML or N-QUADS
+  * The crawler can write all statements to a Triple Store using SPARQL/Update. Optionally uses named graphs to structure the written statements by their source page.
+ * Written graphs optionally include their provenance.
 
 ===Getting Started=== 
 *ldSpider* can be used in two ways:
