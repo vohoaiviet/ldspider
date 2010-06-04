@@ -1,0 +1,37 @@
+#summary Getting started with the Java API of ldSpider
+
+=Introduction=
+TODO
+=Contents=
+<wiki:toc max_depth="3" />
+=Prerequisites=
+TODO
+=Crawler Setup=
+==Creating a new Crawler==
+{{{
+Crawler c = new Crawler(numberOfThreads);
+}}}
+==Setting the Frontier==
+
+==Setting the Link Filter==
+
+==Setting the Fetch Filter==
+
+==Setting the Content Handler==
+
+==Setting the Sink==
+
+==Error handling==
+
+==Start crawling==
+We instruct the crawler to start crawling pages by calling an evaluate method.
+In this example, we use the breadth first strategy, which limits depth of the traversal (number of rounds), as well as the maximum number of URIs crawled per round.
+The breadth first strategy can be configured to crawl the schema information, in which case it will do an extra round to get the schema information of the last round.
+{{{
+int depth = 2;
+int maxURIs = 100;
+boolean includeABox = true;
+boolean includeTBox = false;
+
+c.evaluateBreadthFirst(frontier, depth, maxURIs, includeABox, includeTBox);
+}}}
