@@ -1,7 +1,7 @@
 #summary Getting started with the Java API of ldSpider
 
 =Introduction=
-TODO
+This tutorial provides a short walk-through on how to implement a simple parser using the ldSpider Java API. If you don't want to write code and just want to use ldSpider for a simple crawling task from the command line, have a look at [GettingStartedCommandLine Getting started using ldSpider from the command line].
 =Contents=
 <wiki:toc max_depth="3" />
 =Prerequisites=
