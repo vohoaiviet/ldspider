@@ -12,11 +12,20 @@ TODO
 Crawler c = new Crawler(numberOfThreads);
 }}}
 ==Setting the Frontier==
-
+{{{
+Frontier frontier = new BasicFrontier();
+frontier.setBlacklist(CrawlerConstants.BLACKLIST);
+frontier.add(new URI(seedUri));
+}}}
 ==Setting the Link Filter==
-
-==Setting the Fetch Filter==
-
+We can set a link filter to specify which links are retrieved from a parsed document.
+In this example, we restrict the crawling to a specific domain using a Link Filter:
+{{{
+LinkFilter linkFilter = new LinkFilterDomain(frontier);  
+linkFilter.addHost(hostUri);  
+c.setLinkFilter(linkFilter);
+}}}
+An overview over all available Link Filters can be found [Hooks#LinkFilter here]
 ==Setting the Content Handler==
 
 ==Setting the Sink==
