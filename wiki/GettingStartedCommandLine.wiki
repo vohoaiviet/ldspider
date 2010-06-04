@@ -1,0 +1,58 @@
+#summary Getting started using ldSpider from the command line
+
+=Introduction=
+
+The LDSpider projects aims to provide a lightweighted web crawler for the Linked Data Web. 
+The library will be optimised for a pure in-memory setup. Thus, the scalability of this library is bounded to the allocated and available memory.  
+
+=Usage=
+
+{{{
+$ java -jar ldspider-0.1dev.jar 
+}}}
+
+{{{
+usage:   [-b <depth uri-limit> | -c <max-uris> | -d <directory max-uris>]   [-h]
+       [-l <file>] [-n] [-o <file>] [-r <redirects>] [-s <file> | -u <uri>] [-t
+       <threads>]  [-y]
+
+ -b <depth uri-limit>      do strict breadth-first
+ -c <max-uris>             use load balanced crawling strategy
+ -d <directory max-uris>   use on-disk queue with URI selection based on
+                           frequency
+ -h,--help                 print help
+ -l <file>                 name of access log file
+ -n                        do not extract links - just follow redirects
+ -o <file>                 name of NQuad file with output
+ -r <redirects>            write redirects.nx file
+ -s <file>                 location of seed list
+ -t <threads>              number of threads (default 2)
+ -u <uri>                  uri of an instance
+ -y                        stay on domains of seed uris
+}}}
+
+Example:
+ 
+{{{
+$ java -jar ldspider-0.1dev.jar -c 1 -u http://harth.org/andreas/foaf.rdf -o data.nq
+}}}
+
+==Crawling Strategies==
+
+There's three modes for crawling:
+
+ * breadth first: you specify the depth of the breadth-first traversal (number of rounds), as well as the maximum number of URIs crawled per round per pay-level domain. -1 means unlimited amount of URIs per pay-level domain.
+ * load balancing: you specify the maximum number of URIs crawled, and the crawler will try to fetch up to that number of URIs as quickly as possible. Please note that the crawler might get a few more URIs as we check only occasionally if the limit has been reached.
+ * load balancing on disk: same as load balancing, but the queue is stored in BerkeleyDB on disk.
+
+==Proxies==
+
+Use java -Dhttp.proxyHost=localhost -Dhttp.proxyPort=3128 to enable proxy.
+Note: standard squid does not seem to cache 303 redirects (at least not the FOAF ones).
+
+For proxy authentication, use -Dhttp.proxyUser -Dhttp.proxyPassword
+
+http.nonProxyHosts is not implemented
+
+(there seems to exists a way to just use system proxy settings - http_proxy env variable under Linux but that needs to be tested http://www.rgagnon.com/javadetails/java-0085.html,
+System.setProperty("java.net.useSystemProxies", "true");)
