@@ -5,7 +5,14 @@ TODO
 =Contents=
 <wiki:toc max_depth="3" />
 =Prerequisites=
-TODO
+In order to get started using the ldSpider API, get the most recent version from the [http://code.google.com/p/ldspider/downloads/list Downloads]. Alternatively, you can use the current version from the [https://ldspider.googlecode.com/svn/trunk/ repository].
+==Dependencies==
+LDSpider has a number of dependencies:
+ * *NXParser* (parsing RDF/XML) http://sw.deri.org/2006/08/nxparser/
+ * *HTTPClient 4* (http connection handling) http://hc.apache.org/ (with packages httpcore, httpcore-nio and httpmime)
+ * *Commons CLI* (command line interface) http://commons.apache.org/cli/
+ * *Norbert* (robots.txt handler) http://www.osjava.org/norbert/
+All dependencies are included in the svn repository and the jar file.
 =Implementing a simple Crawler=
 ==Setting up the Crawler==
 The primary class of ldSpider is the *Crawler* class.
