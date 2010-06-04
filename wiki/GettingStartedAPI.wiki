@@ -42,7 +42,7 @@ crawler.setContentHandler(contentHandler);
 }}}
 An overview over all available Content Handlers can be found [Hooks#ContentHandler here]
 ==Setting the Sink==
-Finally, we need to define a sink, which can be used by the Crawler to write the extracted statements. In this example, we write all statements to a file using the N-QUADS format. For his purpose, we use the SinkCallback class which can use an arbitrary callback from the NxParser library (http://sw.deri.org/2006/08/nxparser/) to write the statements. Among others, NxParser includes a callback to write N-QUADS:
+Finally, we need to define a sink, which can be used by the Crawler to write the extracted statements. In this example, we write all statements to a file using the N-QUADS format. For his purpose, we use the !SinkCallback class which can use an arbitrary callback from the !NxParser library (http://sw.deri.org/2006/08/nxparser/) to write the statements. Among others, !NxParser includes a callback to write N-QUADS:
 {{{
 OutputStream os = new FileOutputStream(outputFile);
 Sink sink = new SinkCallback(new CallbackNQOutputStream(os));
@@ -73,7 +73,7 @@ java.util.logging.Logger.getLogger("com.ontologycentral.ldspider").setLevel(java
 }}}
 ==Start crawling==
 We instruct the crawler to start crawling pages by calling an evaluate method.
-In this example, we use the breadth first strategy, which limits depth of the traversal (number of rounds), as well as the maximum number of URIs crawled per round.
+In this example, we use the breadth first strategy, which limits the depth of the traversal (number of rounds), as well as the maximum number of URIs crawled per round.
 The breadth first strategy can be configured to crawl the schema information, in which case it will do an extra round to get the schema information of the last round.
 {{{
 int depth = 2;
