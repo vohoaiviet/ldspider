@@ -14,7 +14,7 @@ The project is a co-operation between Andreas Harth at [http://www.aifb.kit.edu/
  * The crawled data can be written in various ways:
   * The output can be written to files in different formats, such as RDF/XML or N-QUADS
   * The crawler can write all statements to a Triple Store using SPARQL/Update. Optionally uses named graphs to structure the written statements by their source page.
- * Written graphs optionally include their provenance.
+ * The output optionally include provenance information.
 
 ===Getting Started=== 
 *ldSpider* can be used in two ways:
