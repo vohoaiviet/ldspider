@@ -41,7 +41,6 @@ There's three modes for crawling:
 
  * breadth first: you specify the depth of the breadth-first traversal (number of rounds), as well as the maximum number of URIs crawled per round per pay-level domain. -1 means unlimited amount of URIs per pay-level domain.
  * load balancing: you specify the maximum number of URIs crawled, and the crawler will try to fetch up to that number of URIs as quickly as possible. Please note that the crawler might get a few more URIs as we check only occasionally if the limit has been reached.
- * load balancing on disk: same as load balancing, but the queue is stored in BerkeleyDB on disk.
 
 ==Proxies==
 
