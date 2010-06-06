@@ -13,15 +13,12 @@ $ java -jar ldspider-0.1dev.jar
 }}}
 
 {{{
-usage:  [-a <file>] [-b <depth uri-limit> | -c <max-uris> | -d <directory max-uris>]   [-h]
-       [-n] [-o <file>] [-r <redirects>] [-s <file> | -u <uri>] [-t
-       <threads>]  [-y]
+usage:  [-a <file>] [-b <depth uri-limit> | -c <max-uris>] [-h] [-n]
+        [-o <file>] [-r <redirects>] [-s <file> | -u <uri>] [-t <threads>]  [-y]
 
  -a <file>                 name of access log file
  -b <depth uri-limit>      do strict breadth-first
  -c <max-uris>             use load balanced crawling strategy
- -d <directory max-uris>   use on-disk queue with URI selection based on
-                           frequency
  -h,--help                 print help
  -n                        do not extract links - just follow redirects
  -o <file>                 name of NQuad file with output
