@@ -2,7 +2,7 @@
 ==Introduction==
 The *ldSpider* project aims to build a web crawling framework for the linked data web. Requirements and challenges for crawling the linked data web are different from regular web crawling, thus this projects offer a web crawler adapted to traverse and harvest sources and instances from the linked data web. We offer a single jar which can be easily integrated into own applications.
 
-The project is a co-operation between Andreas Harth at [http://www.aifb.kit.edu/ AIFB] and Juergen Umbrich and Aidan Hogan at [http://www.deri.ie/ DERI].
+The project is a co-operation between Andreas Harth at [http://www.aifb.kit.edu/ AIFB]and Juergen Umbrich at [http://www.deri.ie/ DERI]. Aidan Hogan and Robert Isele are contributing.
 
 ==Features==
  * *Content Handlers for different formats*:
