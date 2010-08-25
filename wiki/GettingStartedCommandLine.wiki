@@ -22,6 +22,7 @@ usage:  [-a <file>] [-b <depth uri-limit> | -c <max-uris>] [-h] [-n]
  -h,--help                 print help
  -n                        do not extract links - just follow redirects
  -o <file>                 name of NQuad file with output
+ -oe <uri>                 URI of an endpoint that supports SPARQL/Update
  -r <redirects>            write redirects.nx file
  -s <file>                 location of seed list
  -t <threads>              number of threads (default 2)
