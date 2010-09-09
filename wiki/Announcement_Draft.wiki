@@ -1,5 +1,5 @@
 #labels Deprecated
-We are happy to announce the release of ldSpider 1.1. ldSpider is an extensible Linked Data crawling framework, enabling client applications to traverse and to consume the Web of Linked Data. ldSpider provides an easy to use command line application,as well as a simple API which allows applications to configure and control the details of the crawling process.
+We are happy to announce the release of ldSpider 1.1. ldSpider is an extensible Linked Data crawling framework, enabling client applications to traverse and to consume the Web of Linked Data. ldSpider provides an easy to use command line application as well as a Java API which allows applications to configure and control the details of the crawling process.
 
 The project is a co-operation between Andreas Harth at AIFB and Juergen Umbrich at DERI. Aidan Hogan and Robert Isele are contributing.
 
