@@ -1,4 +1,4 @@
-#summary Getting started using ldSpider from the command line
+#summary Getting started using LDSpider from the command line
 
 =Introduction=
 
