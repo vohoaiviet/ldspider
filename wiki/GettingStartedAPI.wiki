@@ -1,11 +1,11 @@
-#summary Getting started with the Java API of ldSpider
+#summary Getting started with the Java API of LDSpider
 
 =Introduction=
-This tutorial provides a short walk-through on how to implement a simple parser using the ldSpider Java API. If you don't want to write code and just want to use ldSpider for a simple crawling task from the command line, have a look at [GettingStartedCommandLine Getting started using ldSpider from the command line].
+This tutorial provides a short walk-through on how to implement a simple parser using the LDSpider Java API. If you don't want to write code and just want to use LDSpider for a simple crawling task from the command line, have a look at [GettingStartedCommandLine Getting started using LDSpider from the command line].
 =Contents=
 <wiki:toc max_depth="3" />
 =Prerequisites=
-In order to get started using the ldSpider API, get the most recent version from the [http://code.google.com/p/ldspider/downloads/list Downloads]. Alternatively, you can use the current version from the [https://ldspider.googlecode.com/svn/trunk/ repository].
+In order to get started using the LDSpider API, get the most recent version from the [http://code.google.com/p/ldspider/downloads/list Downloads]. Alternatively, you can use the current version from the [https://ldspider.googlecode.com/svn/trunk/ repository].
 ==Dependencies==
 LDSpider has a number of dependencies:
  * *NXParser* (parsing RDF/XML) http://sw.deri.org/2006/08/nxparser/
@@ -15,7 +15,7 @@ LDSpider has a number of dependencies:
 All dependencies are included in the svn repository and the jar file.
 =Implementing a simple Crawler=
 ==Setting up the Crawler==
-The primary class of ldSpider is the *Crawler* class.
+The primary class of LDSpider is the *Crawler* class.
 In order to implement a new crawler we create a new instance of it:
 {{{
 Crawler crawler = new Crawler(numberOfThreads);
@@ -35,7 +35,7 @@ crawler.setLinkFilter(linkFilter);
 }}}
 An overview over all available Link Filters can be found [Hooks#LinkFilter here]
 ==Setting the Content Handler==
-By default, ldSpider will handle all documents which use the RDF/XML format. If we want to handler different formats, we can register a Content Handler. Here we combine an RDF/XML Handler and an Nx Handler to handle the most commonly used Linked Data formats:
+By default, LDSpider will handle all documents which use the RDF/XML format. If we want to handler different formats, we can register a Content Handler. Here we combine an RDF/XML Handler and an Nx Handler to handle the most commonly used Linked Data formats:
 {{{
 ContentHandler contentHandler = new ContentHandlers(new ContentHandlerRdfXml(), new ContentHandlerNx());
 crawler.setContentHandler(contentHandler);
