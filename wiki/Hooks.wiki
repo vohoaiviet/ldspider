@@ -1,7 +1,7 @@
 #summary Description of hooks architecture
 
 =Introduction=
-ldspider uses Hooks to adapt the behaviour of the crawler.
+LDSpider uses Hooks to adapt the behaviour of the crawler.
 
 =Contents=
 <wiki:toc max_depth="3" />
