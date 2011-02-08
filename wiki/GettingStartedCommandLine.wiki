@@ -28,7 +28,7 @@ usage:  [-a <file>] [-b <depth uri-limit> | -c <max-uris>] [-h] [-n]
  -t <threads>              number of threads (default 2)
  -u <uri>                  uri of an instance
  -y                        stay on domains of seed uris
- -follow <uri>             only follow a specific predicate
+ -follow <uri>             only follow a specific predicate e.g. http://www.w3.org/2002/07/owl#sameAs
 }}}
 
 Example:
