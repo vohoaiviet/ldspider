@@ -13,22 +13,26 @@ $ java -jar ldspider-0.1dev.jar
 }}}
 
 {{{
-usage:  [-a <file>] [-b <depth uri-limit> | -c <max-uris>] [-h] [-n]
-        [-o <file>] [-r <redirects>] [-s <file> | -u <uri>] [-t <threads>]  [-y]
+usage:   [-a <file>] -b <depth uri-limit pld-limit> | -c <max-uris> | -d <directory> [-e]
+         [-f <uris> | -n | -y] [-h] [-m <frontier-file>] [-o <file> | -oe <uri>] [-r <redirects>]
+         -s <file> [-t <threads>]
 
- -a <file>                 name of access log file
- -b <depth uri-limit>      do strict breadth-first
- -c <max-uris>             use load balanced crawling strategy
- -h,--help                 print help
- -n                        do not extract links - just follow redirects
- -o <file>                 name of NQuad file with output
- -oe <uri>                 URI of an endpoint that supports SPARQL/Update
- -r <redirects>            write redirects.nx file
- -s <file>                 location of seed list
- -t <threads>              number of threads (default 2)
- -u <uri>                  uri of an instance
- -y                        stay on domains of seed uris
- -follow <uri>             only follow a specific predicate e.g. http://www.w3.org/2002/07/owl#sameAs
+ -a <file>                        name of access log file
+ -b <depth uri-limit pld-limit>   do strict breadth-first (uri-limit and
+                                  pld-limit optional)
+ -c <max-uris>                    use load balanced crawling strategy
+ -d <directory>                   download seed URIs and archive raw data
+ -e                               omit header triple in data
+ -f,--follow <uris>               only follow specific predicates
+ -h,--help                        print help
+ -m <frontier-file>               memory-optimised (puts frontier on disk)
+ -n                               do not extract links - just follow redirects
+ -o <file>                        name of NQuad file with output
+ -oe <uri>                        SPARQL/Update endpoint for output
+ -r <redirects>                   write redirects.nx file
+ -s <file>                        location of seed list
+ -t <threads>                     number of threads (default 2)
+ -y,--stay                        stay on hostnames of seed uris
 }}}
 
 Example:
